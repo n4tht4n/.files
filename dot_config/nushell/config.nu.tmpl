@@ -19,6 +19,8 @@
 
 use std "path add"
 
+path add "/usr/sbin"
+path add "/sbin"
 {{- if eq .chezmoi.os "linux" }}
 path add "/home/linuxbrew/.linuxbrew/bin"
 {{ else }}
