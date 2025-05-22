@@ -1,0 +1,21 @@
+[init]
+  defaultBranch = main
+[color]
+  ui = auto
+[push]
+  default = simple
+  autoSetupRemote = true
+[log]
+  graphColors = red,yellow,cyan
+
+[github]
+  user = n4tht4n
+
+# private modifications
+[include]
+  path = config.private
+{{- if eq .env "work" }}
+# modifications @work
+[includeIf "gitdir:~/dev/work/"]
+  path = config.work
+{{- end }}

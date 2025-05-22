@@ -1,0 +1,4 @@
+# the following files will be removed from $HOME
+.bash_history
+.zsh_history
+.zsh_sessions

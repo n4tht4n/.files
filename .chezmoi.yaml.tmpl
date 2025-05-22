@@ -1,1 +1,20 @@
+{{- $env := promptString "Which env we're runnong on, 'work | utm | server | private'" -}}
+
+{{- $gitName := promptString "What should be your default Git name" -}}
+{{- $gitMail := promptString "What should be your default Git mail" -}}
+
+{{- $gitWorkName := promptString "What should be your Git name @work (leave empty if not used)" -}}
+{{- $gitWorkMail := promptString "What should be your Git mail @work (leave empty if not used)" -}}
+
 sourceDir: ~/.files
+
+data:
+  env: "{{ $env }}"
+  git:
+    name: "{{ $gitName }}"
+    mail: "{{ $gitMail }}"
+  {{ if eq $env "work" }}
+  gitWork:
+    name: "{{ $gitWorkName }}"
+    mail: "{{ $gitWorkMail }}"
+  {{ end }}
