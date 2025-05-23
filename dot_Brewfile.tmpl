@@ -9,8 +9,15 @@ cask "firefox"
 cask "ghostty"
 
 {{- if ne .env "utm" }}
-# cask installed only on non-'utm' macOS machines...
+# casks installed only on non-'utm' macOS machines...
+cask "docker"
 cask "tiles"
+{{- end }}
+
+{{- if eq .env "private" }}
+# casks installed only on private macOS machines
+cask "keepingyouawake"
+cask "raspberry-pi-imager"
 {{- end }}
 
 {{- end }}
