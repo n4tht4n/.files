@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+################################################################################
+# This script will do a basic bootstrap of a "fresh" Linux/macOS system,       #
+# installing a basic, required toolset to then apply my dotfiles.              #
+#                                                                              #
+# Different systems are handled differently 😎.                                #
+################################################################################
+
+OS="$(uname)"
+USERNAME="$USER"
+
+echo -e "\n🚀 Executing remote-bootstrap... github/n4tht4n/.files.git → ~/.files" && sleep 2
+
+### Check for supported system
+if [[ "$OS" != "Linux" && "$OS" != "Darwin" ]]; then
+	echo "💣 Didn't find a supported system! ($OS is not in [Linux, Darwin])" && exit 1
+elif [[ "$OS" == "Linux" ]]; then
+	[ -f /etc/os-release ] && . /etc/os-release && OS=$ID
+	if [[ "$OS" != "debian" ]]; then
+		echo "💣 Didn't find a supported Linux! ($OS is not in [debian])" && exit 1
+	fi
+fi
+
+### Check if it's a 1st time installation (currently all fresh installed systems are missing git 😉)
+git -h &> /dev/null
+if [[ $? -ne 0 ]]; then
+	if [[ "$OS" == "debian" ]]; then
+		echo "🚧 Installing mandatory tools for Linux..." && sleep 2
+		su root -c "export PATH=/usr/sbin:$PATH;apt -y install build-essential curl git nfs-common open-iscsi sudo;usermod -aG sudo $USERNAME"
+		echo "🚧 Please relog/restart to finish tools setup! Then rerun this script again!" && exit 0
+	else
+		echo "🚧 Please intall dev tools first (which have popped up)! Then rerun this script again!" && exit 0
+	fi
+fi
+
+### Install Homebrew
+if [[ "$OS" == "debian" ]]; then
+	[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+	[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+type brew &> /dev/null
+if [[ $? -ne 0 ]]; then
+	echo "🍺 Installing Homebrew..." && sleep 2
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+### Make Homebrew available for this session
+if [[ "$OS" == "debian" ]]; then
+	[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+	[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+brew analytics off
+
+### Install and apply chezmoi
+echo "🚧 Installing chezmoi and applying .files..." && sleep 2
+brew install chezmoi
+chezmoi init -S ~/.files n4tht4n/.files --apply
+
+### Done
+echo "👍 We're done, please relog and enjoy your freshly installed system 😎🚀"
