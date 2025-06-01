@@ -1,0 +1,10 @@
+use std "path add"
+
+{{- if eq .chezmoi.os "linux" }}
+path add "/home/linuxbrew/.linuxbrew/bin"
+{{ else }}
+path add "/opt/homebrew/bin"
+{{ end -}}
+path add "/usr/local/bin"
+path add "/usr/sbin"
+path add "/sbin"
