@@ -4,5 +4,35 @@ README.md
 LICENSE
 remote-bootstrap
 
-# simple
+# simple files
+.bash_history
+.CFUserTextEncoding
 .DS_Store
+.lesshst
+.viminfo
+.zsh_history
+
+# simple directories
+.cache/
+.cups/
+.files/
+.ssh/
+.Trash/
+.zsh_sessions/
+Desktop/
+Documents/
+Downloads/
+#Library/**
+Movies/
+Music/
+Pictures/
+Public/
+
+{{- if ne .chezmoi.os "darwin" }}
+# manage this only on macOS!
+!Library/LaunchAgents/**
+{{- end }}
+
+# special config stuff
+.config/nushell/history.txt
+.config/chezmoi
