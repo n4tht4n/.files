@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+{{- if ne .env "server" }}
+if [ ! -e ~/.ssh/id_ed25519 ]; then
+	echo "🔐 Creating SSH key" && sleep 2
+	ssh-keygen -t ed25519 -C "n4tht4n@mailbox.org"
+	echo "🚧 If required, upload the SSH key to GitHub..." && sleep 2
+else
+	echo "🔐 SSH key already exists..."
+fi
+
+# Switch this repository's remote to SSH!
+cd $HOME/.files
+git remote remove origin
+git remote add origin git@github.com:n4tht4n/.files.git
+cd -
+{{- end }}
+

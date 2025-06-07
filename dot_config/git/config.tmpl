@@ -1,0 +1,22 @@
+[init]
+  defaultBranch = main
+[color]
+  ui = auto
+[push]
+  default = simple
+  autoSetupRemote = true
+[log]
+  graphColors = red,yellow,cyan
+
+[github]
+  user = n4tht4n
+
+[user]
+  name = N4tht4N
+  email = n4tht4n@mailbox.org
+
+{{- if eq .env "work" }}
+# @work mods
+[includeIf "gitdir:~/dev/work"]
+  path = config.work
+{{- end }}
