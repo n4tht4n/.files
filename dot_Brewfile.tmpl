@@ -2,3 +2,8 @@
 
 # The following packages will be installed on every system
 brew "nushell"
+
+{{- if eq .chezmoi.os "darwin" }}
+# macOS only section...
+cask "ghostty"
+{{- end }}
