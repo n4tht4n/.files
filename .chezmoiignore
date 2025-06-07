@@ -1,4 +1,5 @@
 # files from this repo...
+assets/**
 README.md
 LICENSE
 remote-bootstrap
