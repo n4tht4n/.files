@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo "🚧 Configuring nushell as login-shell..." && sleep 2
+
+grep nu /etc/shells &> /dev/null
+
+if [[ $? -ne 0 ]]; then
+	{{- if eq .chezmoi.os "linux" }}
+	su root -c "echo '/home/linuxbrew/.linuxbrew/bin/nu' >> /etc/shells"
+	{{- else }}
+	sudo su root -c "echo '/opt/homebrew/bin/nu' >> /etc/shells"
+	launchctl setenv XDG_CONFIG_HOME $HOME/.config
+	{{ end }}
+fi
+
+echo "🚧 	Calling [chsh] ..." && sleep 2
+
+{{- if eq .chezmoi.os "linux" }}
+chsh -s "/home/linuxbrew/.linuxbrew/bin/nu" $USER
+{{- else }}
+sudo chsh -s "/opt/homebrew/bin/nu" $USER
+{{- end }}

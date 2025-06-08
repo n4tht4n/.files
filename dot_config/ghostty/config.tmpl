@@ -3,5 +3,6 @@ background-opacity = 0.9
 background-blur = true
 font-size = 16
 
+{{- if eq .chezmoi.os "darwin" }}
 macos-titlebar-style = tabs
-
+{{- end }}
