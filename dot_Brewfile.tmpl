@@ -4,6 +4,19 @@
 brew "nushell"
 
 {{- if eq .chezmoi.os "darwin" }}
+##########################################################
 # macOS only section...
+cask "docker"	# installs Docker Desktop
 cask "ghostty"
+cask "tiles"
+cask "vivaldi"
+
+{{- if ne .env "work" }}
+# non-work macOS -> my private clients ;)
+cask "balenaetcher"
+cask "keepingyouawake"
+cask "raspberry-pi-imager"
+cask "spotify"
+{{- end }}
+
 {{- end }}
