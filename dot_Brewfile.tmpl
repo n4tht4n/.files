@@ -7,9 +7,10 @@ brew "nushell"
 ##########################################################
 # macOS only section...
 cask "docker"	# installs Docker Desktop
+cask "firefox"
+cask "fork"
 cask "ghostty"
 cask "tiles"
-cask "vivaldi"
 
 {{- if ne .env "work" }}
 # non-work macOS -> my private clients ;)
