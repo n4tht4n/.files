@@ -1,0 +1,18 @@
+abbr -a -- gfo 'git fetch origin'
+abbr -a --regex '^\\.\\.+$' --function multicd -- dotdot
+abbr -a -- g git
+abbr -a -- gs 'git status'
+abbr -a -- ga 'git add'
+abbr -a -- gc 'git commit'
+abbr -a -- gd 'git diff'
+abbr -a -- gp 'git push'
+abbr -a -- gl 'git pull'
+abbr -a -- glob 'git log main --oneline'
+abbr -a -- gg git-graph
+abbr -a -- vi nvim
+
+{{- if eq .chezmoi.os "darwin" }}
+abbr -a -- c 'ncal -w -3'
+abbr -a -- cy 'ncal -w -y'
+abbr -a -- c3 'ncal -w -B 3 -A 3'
+{{- end }}
