@@ -6,7 +6,7 @@ grep fish /etc/shells &> /dev/null
 
 if [[ $? -ne 0 ]]; then
 	{{- if eq .chezmoi.os "linux" }}
-	su root -c "echo '/home/linuxbrew/.linuxbrew/bin/nu' >> /etc/shells"
+	su root -c "echo '/home/linuxbrew/.linuxbrew/bin/fish' >> /etc/shells"
 	{{- else }}
 	sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
 	{{ end }}
@@ -15,7 +15,7 @@ fi
 echo "🚧 	Calling [chsh] ..." && sleep 2
 
 {{- if eq .chezmoi.os "linux" }}
-chsh -s "/home/linuxbrew/.linuxbrew/bin/nu" $USER
+sudo chsh -s "/home/linuxbrew/.linuxbrew/bin/fish" $USER
 {{- else }}
 sudo chsh -s /opt/homebrew/bin/fish $USER
 {{- end }}
