@@ -3,7 +3,8 @@
 # The following packages will be installed on every system
 brew "fish"
 brew "git-graph"
-brew "neovim"
+brew "helix"
+brew "jhead"
 brew "starship"
 
 {{- if eq .env "client" }}
@@ -16,10 +17,12 @@ cask "font-jetbrains-mono-nerd-font"
 {{- if eq .chezmoi.os "darwin" }}
 ##########################################################
 # macOS only section...
+cask "container"
 cask "firefox"
 cask "fork"
 cask "ghostty"
 cask "tiles"
+cask "zed"
 
 {{- if ne .env "work" }}
 # non-work macOS -> my private clients ;)
