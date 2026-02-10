@@ -9,7 +9,8 @@ abbr -a -- gp 'git push'
 abbr -a -- gl 'git pull'
 abbr -a -- glob 'git log main --oneline'
 abbr -a -- gg git-graph
-abbr -a -- vi nvim
+
+abbr -a -- ocr ocrmypdf --optimize 3 --deskew --clean --force-ocr --rotate-pages --language deu+eng --output-type pdfa
 
 {{- if eq .chezmoi.os "darwin" }}
 abbr -a -- c 'ncal -w -3'

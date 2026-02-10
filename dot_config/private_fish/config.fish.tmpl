@@ -1,0 +1,20 @@
+{{- if eq .chezmoi.os "linux" }}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- else }}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end}}
+
+if status --is-interactive
+  # Commands to run in interactive sessions can go here
+end
+
+if status --is-login
+{{- if eq .chezmoi.os "linux" }}
+  fish_add_path -g /home/linuxbrew/.linuxbrew/bin
+  fish_add_path -g ~/.local/bin
+{{- else }}
+  fish_add_path -g /opt/homebrew/bin
+{{- end }}
+end
+
+starship init fish | source
