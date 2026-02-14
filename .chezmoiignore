@@ -14,6 +14,7 @@ remote-bootstrap
 .zsh_history
 
 # simple directories
+.bun/
 .cache/
 .cups/
 .files/
@@ -22,6 +23,7 @@ remote-bootstrap
 .swiftpm/
 .Trash/
 .zsh_sessions/
+Calibre Library/
 Desktop/
 Documents/
 Downloads/
@@ -34,3 +36,6 @@ tmp/
 
 # special config stuff
 .config/chezmoi
+.config/zed/conversations
+.config/zed/prompts
+.config/zed/themes
