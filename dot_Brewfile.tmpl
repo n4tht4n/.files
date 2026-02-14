@@ -1,11 +1,14 @@
 # https://github.com/Homebrew/homebrew-bundle
 
 # The following packages will be installed on every system
+brew "bat"
+brew "fd"
 brew "fish"
 brew "git-graph"
 brew "helix"
 brew "jhead"
 brew "starship"
+brew "television"
 
 {{- if eq .env "client" }}
 ##########################################################
@@ -17,7 +20,7 @@ cask "font-jetbrains-mono-nerd-font"
 {{- if eq .chezmoi.os "darwin" }}
 ##########################################################
 # macOS only section...
-cask "container"
+brew "container"
 cask "firefox"
 cask "fork"
 cask "ghostty"
