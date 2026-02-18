@@ -27,7 +27,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Catppuccin Mocha (Blur) [Heavy]"
+    "dark": "Catppuccin Mocha"
   },
   "tabs": {
     "file_icons": true
@@ -44,7 +44,7 @@
   },
   "preferred_line_length": 120,
   "relative_line_numbers": "enabled",
-  "restore_on_startup": "none",
+  "restore_on_startup": "launchpad",
   "wrap_guides": [80, 120],
   "project_panel": {
     "dock": "right"
