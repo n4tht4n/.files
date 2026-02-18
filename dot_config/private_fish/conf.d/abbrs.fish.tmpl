@@ -12,6 +12,9 @@ abbr -a -- gg git-graph
 
 abbr -a -- ocr ocrmypdf --optimize 3 --deskew --clean --force-ocr --rotate-pages --language deu+eng --output-type pdfa
 
+# special kubectl abbr. to set the namespace
+abbr -a -- ksetn 'kubectl config set-context --current --namespace='
+
 {{- if eq .chezmoi.os "darwin" }}
 abbr -a -- c 'ncal -w -3'
 abbr -a -- cy 'ncal -w -y'
