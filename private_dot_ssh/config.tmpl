@@ -6,3 +6,11 @@ Host *
   SetEnv TERM=xterm-256color
   GSSAPIAuthentication no
   IPQoS lowdelay throughput
+
+{{- if ne .env "server" }}
+# Sample for host specific SSH keys (only available on non-server environments)
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+{{- end }}
