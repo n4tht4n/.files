@@ -19,7 +19,6 @@ remote-bootstrap
 .cups/
 .files/
 .local/
-.ssh/
 .swiftpm/
 .Trash/
 .zsh_sessions/
@@ -33,6 +32,11 @@ Music/
 Pictures/
 Public/
 tmp/
+
+# special .ssh stuff
+.ssh/agent/
+.ssh/id_*
+.ssh/known_host*
 
 # special config stuff
 .config/chezmoi
