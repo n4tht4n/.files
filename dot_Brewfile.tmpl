@@ -13,7 +13,9 @@ brew "television"
 {{- if eq .env "client" }}
 ##########################################################
 # client only section
+brew "helm"
 brew "kubernetes-cli"
+brew "kubeseal"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 {{- end }}
