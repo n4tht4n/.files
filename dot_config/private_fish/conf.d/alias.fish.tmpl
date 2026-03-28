@@ -1,3 +1,26 @@
+# bat aliases (instead of cat)
+alias cat 'bat'
+
+# eza aliases (instead of ls)
+alias ls 'eza --icons'
+alias ll 'eza --icons -lhg --time-style=long-iso'
+alias la 'eza --icons -lhg --time-style=long-iso --all'
+
+# git aliases
+alias g git
+
+alias ga 'git add'
+alias gc 'git commit'
+alias gd 'git diff'
+alias gdca 'git diff --cached'
+alias gfo 'git fetch origin'
+alias gg git-graph
+alias gl 'git pull'
+alias gp 'git push'
+alias grp 'git remote prune origin'
+alias gs 'git status'
+alias lg lazygit
+
 # kubectl aliases
 alias k kubectl
 
@@ -47,3 +70,10 @@ alias krsd 'k rollout status deployment'
 alias kru 'k rollout undo'
 
 alias ksd 'k scale deployment'
+
+# ncal aliases
+{{- if eq .chezmoi.os "darwin" }}
+alias c 'ncal -w -3'
+alias cy 'ncal -w -y'
+alias c3 'ncal -B 3 -A 3'
+{{- end }}
