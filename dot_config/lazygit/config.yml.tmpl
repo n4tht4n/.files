@@ -1,0 +1,10 @@
+gui:
+  showIcons: true
+  sidePanelWidth: 0.2
+git:
+  branchLogCmd: git-graph
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging-never
+  allBranchesLogCmds:
+    - git-graph -f '%h %d %s | %cs | %an'
