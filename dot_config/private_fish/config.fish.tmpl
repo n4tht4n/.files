@@ -18,3 +18,9 @@ if status --is-login
 end
 
 starship init fish | source
+
+{{- if eq .env "work" }}
+
+# @work specific stuff
+bass source $HOME/.sdkman/bin/sdkman-init.sh
+{{- end }}
