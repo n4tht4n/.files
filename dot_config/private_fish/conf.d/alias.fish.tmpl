@@ -77,3 +77,19 @@ alias c 'ncal -w -3'
 alias cy 'ncal -w -y'
 alias c3 'ncal -B 3 -A 3'
 {{- end }}
+
+# timewarrior aliases
+{{- if eq .chezmoi.os "darwin" }}
+alias tw 'timew'
+alias twa 'timew start'
+alias twc 'timew continue'
+alias twd 'timew day'
+alias twm 'timew month'
+alias twma 'timew modify start'
+alias twmo 'timew modify end'
+alias two 'timew stop'
+alias tws 'timew summary'
+alias twsi 'timew summary :ids'
+alias twsy 'timew summary :yesterday'
+alias tww 'timew week'
+{{- end }}
