@@ -7,6 +7,7 @@ brew "eza"
 brew "fastfetch"
 brew "fd"
 brew "fish"
+brew "fisher"
 brew "fx"
 brew "git-delta"
 brew "git-graph"
@@ -23,7 +24,7 @@ brew "timewarrior"
 brew "tldr"
 brew "yh"
 
-{{- if eq .env "client" }}
+{{- if ne .env "server" }}
 ##########################################################
 # client only section
 brew "helm"
@@ -37,12 +38,12 @@ cask "font-jetbrains-mono-nerd-font"
 ##########################################################
 # macOS only section...
 brew "container"
-brew "xcodes"
 cask "firefox"
 cask "fork"
 cask "ghostty"
 cask "orion"
 cask "tiles"
+cask "xcodes-app"
 cask "zed"
 
 {{- if ne .env "work" }}
