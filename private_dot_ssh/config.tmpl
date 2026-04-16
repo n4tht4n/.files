@@ -7,7 +7,7 @@ Host *
   GSSAPIAuthentication no
   IPQoS lowdelay throughput
 
-{{- if ne .env "server" }}
+{{- if (and (ne .env "server") (ne .env "work")) }}
 # Sample for host specific SSH keys (only available on non-server environments)
 Host github.com
   AddKeysToAgent yes
