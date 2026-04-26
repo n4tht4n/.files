@@ -1,3 +1,4 @@
+{{- if eq .env "work" }}
 [gpg]
   format = ssh
 [commit]
@@ -6,3 +7,4 @@
   name = {{ .gitWork.name }}
   email = {{ .gitWork.mail }}
   signingkey = ~/.ssh/id_ed25519_cluetec
+{{- end }}
