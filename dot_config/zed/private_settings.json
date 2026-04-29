@@ -27,7 +27,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Catppuccin Mocha"
+    "dark": "Dracula"
   },
   "tabs": {
     "file_icons": true
@@ -51,5 +51,17 @@
   },
   "git_panel": {
     "dock": "right"
+  },
+  "cli_default_open_behavior": "existing_window",
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
   }
 }

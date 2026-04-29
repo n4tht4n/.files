@@ -55,4 +55,9 @@ cask "raspberry-pi-imager"
 cask "spotify"
 {{- end }}
 
+{{- if eq .env "work" }}
+# working macOS
+brew "glab"
+{{- end }}
+
 {{- end }}
