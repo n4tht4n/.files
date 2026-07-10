@@ -6,3 +6,9 @@ font-size = 16
 {{- if eq .chezmoi.os "darwin" }}
 macos-titlebar-style = tabs
 {{- end }}
+
+# Quick terminal config
+keybind = global:cmd+backquote=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-size = 75%
+quick-terminal-screen = macos-menu-bar
