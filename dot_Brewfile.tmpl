@@ -11,11 +11,11 @@ brew "fisher"
 brew "fx"
 brew "git-delta"
 brew "git-graph"
-brew "helix"
 brew "jd"
 brew "jhead"
 brew "jq"
 brew "lazygit"
+brew "neovim"
 brew "ripgrep"
 brew "starship"
 brew "task"
@@ -44,9 +44,9 @@ brew "container"
 cask "firefox"
 cask "fork"
 cask "ghostty"
-cask "vivaldi"
 cask "xcodes-app"
 cask "zed"
+cask "zen"
 
 {{- if ne .env "work" }}
 # non-work macOS -> my private clients ;)
@@ -54,7 +54,6 @@ cask "balenaetcher"
 cask "keepingyouawake"
 cask "openlogi"
 cask "raspberry-pi-imager"
-cask "spotify"
 {{- end }}
 
 {{- if eq .env "work" }}
