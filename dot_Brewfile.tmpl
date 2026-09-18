@@ -29,7 +29,6 @@ brew "zellij"
 {{- if ne .env "server" }}
 ##########################################################
 # client only section
-brew "helm"
 brew "kubernetes-cli"
 brew "kubeseal"
 cask "font-jetbrains-mono"
@@ -39,7 +38,7 @@ cask "font-jetbrains-mono-nerd-font"
 {{- if eq .chezmoi.os "darwin" }}
 ##########################################################
 # macOS only section...
-cask "nikitabobko/tap/aerospace"
+# cask "nikitabobko/tap/aerospace"
 cask "bitwarden"
 brew "container"
 cask "firefox"
@@ -55,11 +54,13 @@ cask "balenaetcher"
 cask "keepingyouawake"
 cask "openlogi"
 cask "raspberry-pi-imager"
+cask "vivaldi"
 {{- end }}
 
 {{- if eq .env "work" }}
 # working macOS
 brew "glab"
+brew "helm"
 {{- end }}
 
 {{- end }}
