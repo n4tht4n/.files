@@ -51,10 +51,10 @@ cask "zen"
 {{- if ne .env "work" }}
 # non-work macOS -> my private clients ;)
 cask "balenaetcher"
+cask "iina"
 cask "keepingyouawake"
 cask "openlogi"
 cask "raspberry-pi-imager"
-cask "vivaldi"
 {{- end }}
 
 {{- if eq .env "work" }}
